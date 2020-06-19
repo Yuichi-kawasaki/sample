@@ -1,13 +1,13 @@
 class BlogsController < ApplicationController
   def index
       @blogs = Blog.all
+      binding.pry
   end
   def new
       @blog = Blog.new
   end
   def create
     @blog = Blog.new(blog_params)
-    binding.pry
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
     else
