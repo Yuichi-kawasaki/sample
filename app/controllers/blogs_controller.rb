@@ -32,14 +32,15 @@ class BlogsController < ApplicationController
       render :edit
     end
   end
-  def destroy
-    @blog.destroy
-    redirect_to blogs_path, notice:"ブログを削除しました！"
-  end
 
   def confirm
     @blog = Blog.new(blog_params)
     render :new if @blog.invalid?
+  end
+
+  def destroy
+    @blog.destroy
+    redirect_to blogs_path, notice: "ブログを削除しました！"
   end
 
   private
